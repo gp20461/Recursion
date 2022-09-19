@@ -3,7 +3,7 @@
 
 using namespace std;
 
-void fun(int arr[],vector<int>& vec,int n,int ind)
+void subSeq(int arr[],vector<int>& vec,int n,int ind)
 {
    if(ind == n)
    {
@@ -19,11 +19,11 @@ void fun(int arr[],vector<int>& vec,int n,int ind)
    }
 // pick element
   vec.push_back(arr[ind]);
-  fun(arr,vec,n,ind+1);
+  subSeq(arr,vec,n,ind+1);
   vec.pop_back();
 
 // Don't pick element
-  fun(arr,vec,n,ind+1);
+  subSeq(arr,vec,n,ind+1);
 }
 
 int main(){
@@ -34,6 +34,6 @@ int main(){
 
   vector<int>vec;
   
-  fun(arr,vec,n,0);
+  subSeq(arr,vec,n,0);
   
 }
