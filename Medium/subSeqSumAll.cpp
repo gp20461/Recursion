@@ -3,27 +3,27 @@
 
 using namespace std;
 
-bool fun(int arr[],vector<int>& vec,int n,int ind,int sum,int s)
+void fun(int arr[],vector<int>& vec,int n,int ind,int sum,int s)
 {
    if(ind == n)
    {
      if(sum == s)
      {
         for(auto it:vec) cout << it << " ";
-        return true;
+        cout << endl;
      }
-   return false;
+   return;
    }
 // pick element
   vec.push_back(arr[ind]);
   s += arr[ind];
-  if(fun(arr,vec,n,ind+1,sum,s)) return true;
+  fun(arr,vec,n,ind+1,sum,s);
 
   s -= arr[ind];
   vec.pop_back();
 
 // Don't pick element
-  if(fun(arr,vec,n,ind+1,sum,s)) return true;
+  fun(arr,vec,n,ind+1,sum,s);
 }
 
 int main(){
@@ -32,7 +32,7 @@ int main(){
 
   int n = 3,ind = 0,s = 0;
 
-  int sum = 3;
+  int sum = 4;
   vector<int>vec;
   
   fun(arr,vec,n,ind,sum,s);
